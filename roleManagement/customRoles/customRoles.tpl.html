@@ -1,0 +1,48 @@
+<div class="container page-container customRoles">
+    <div class="top-container">
+        <div class="page-title-wrapper">
+            <ol class="breadcrumb rolesAndPermissionBreadcrum">
+                <li class="breadcrumb-item"><span ng-bind-html="'rolesListPage.rolesAndPermissions' | translate"></span></li>
+            </ol>
+            <div>
+                <label class="page-title customRolesPageTitle">{{pageTitle}}</label>
+                <span class="page-title">{{ $ctrl.displayCustomRoleName ? ' (' : '' }}</span>
+                <label class="custom-role-name-display">{{ $ctrl.displayCustomRoleName}}</label>
+                <span class="page-title">{{ $ctrl.displayCustomRoleName ? ')' : '' }}</span>
+            </div>
+        </div>
+        <div class="buttons-wrapper" id="custom-roles-text-right-buttons">
+            <button id="custom-roles-cancel-button" class="btn btn-default cancel" translate="rolesListPage.cancel"
+                    popover-placement="auto bottom"
+                    uib-popover-template="cancelPopover.template"
+                    popover-is-open = "cancelPopoverOpen"
+                    popover-trigger = "'focus'"
+                    popover-class="tooltip-popover-style"
+                    ng-click="cancel()">
+            </button>
+            <fieldset ng-disabled="forms.generalInfoForm.roleName.$invalid">
+                <button id="custom-roles-publish-btn" class="btn btn-default cancel" translate="rolesListPage.save"
+                        ng-click="$ctrl.saveCustomRole()" ng-disabled="!isPermissionNew">
+                </button>
+                <button id="custom-roles-publish-and-activate-btn" class="btn btn-primary save" translate="rolesListPage.saveAndActivate"
+                        ng-click="$ctrl.saveAndActivateCustomRole()" ng-show="isNewRole() || isDraftRole()">
+                </button>
+            </fieldset>
+        </div>
+    </div>
+    <div class="page-data customRolesConfigurationTabs">
+        <uib-tabset class="element-tabset">
+            <uib-tab id="general-tab" index="0" heading="{{'rolesListPage.tabLabels.general' | translate}}">
+                <div class="user-modal-tab-content" ng-include="'roleManagement/customRoles/generalInfo/generalInfo.tpl.html'"></div>
+            </uib-tab>
+            <uib-tab id="permission-tab" index="1" heading="{{'rolesListPage.tabLabels.permissions' | translate}}">
+                <div class="user-modal-tab-content"
+                     ng-include="'roleManagement/customRoles/permissions/permissions.tpl.html'"></div>
+            </uib-tab>
+            <uib-tab id="restrictedaccess-tab" index="2" heading="{{'rolesListPage.tabLabels.restrictedAccess' | translate}}" ng-show="true">
+                <div class="user-modal-tab-content"
+                     ng-include="'roleManagement/customRoles/restrictedAccess/restrictedAccess.tpl.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

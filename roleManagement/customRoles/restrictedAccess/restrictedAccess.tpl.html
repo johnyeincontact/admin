@@ -1,0 +1,58 @@
+<div class="customRolesPermissions" ng-form="restrictedAccess">
+
+    <div>
+        <div>
+            <label for="campaign">Permission assigned to this role will be restricted for following</label>
+        </div>
+
+        <div style="background-color: #dce9ea;">
+            <label for="Campaign" style="width: 80%; float: left;">Campaign</label>
+            <button id="allAndFuture" ng-click="$ctrl.allAndFuture()">All & Future</button>
+            <button id="none" ng-click="$ctrl.none()">None</button>
+            <button id="custom" ng-click="$ctrl.custom()">Custom</button>
+            <button id="expand" ng-src="" ng-click="$ctrl.expandRow()">U/D</button>
+        </div>
+        <div ng-hide="$ctrl.hideAddCampaign" style="float: right; margin-right: 14px;" >
+            <button id="addCampaign" ng-click="$ctrl.addCampaign()">Add Campaign</button>
+        </div>
+        <div>
+            <hr/>
+        </div>
+        <div>
+            <label for="NoTeamAssignedYet" ng-hide="$ctrl.hideAddCampaign">No campaign assigned yet</label>
+        </div>
+        <div ng-show="true">
+            <view>popup window, check groups for example</view>
+        </div>
+
+        <div>
+            <hr/>
+        </div>
+
+        <div style="background-color: #dce9ea;">
+            <label for="Campaign" style="width: 80%; float: left;">Teams</label>
+            <button id="allAndFuture" ng-click="$ctrl.allAndFuture()">All & Future</button>
+            <button id="none" ng-click="$ctrl.none()">None</button>
+            <button id="custom" ng-click="$ctrl.custom()">Custom</button>
+            <button id="expand" ng-src="" ng-click="$ctrl.expandRow()">U/D</button>
+        </div>
+        <div ng-show="true" style="float: right; margin-right: 14px;" >
+            <button id="addCampaign" ng-click="$ctrl.addCampaign()">Add Team</button>
+        </div>
+        <div>
+            <hr/>
+        </div>
+        <div>
+            <label for="NoTeamAssignedYet" ng-hide="hideAddCampaign">No team assigned yet</label>
+        </div>
+        <div ng-show="true">
+            <view>popup window, check groups for example</view>
+        </div>
+
+        <div>
+            <hr/>
+        </div>
+
+    </div>
+
+

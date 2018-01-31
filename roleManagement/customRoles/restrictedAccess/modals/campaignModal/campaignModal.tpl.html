@@ -1,0 +1,40 @@
+<div ng-include="'groups/modals/groupModal/customButtons.tpl.html'"></div>
+<nice-modal ng-form="campaignForm"
+            modal-title="headerText"
+            allow-close="!hasEmployeeDeltaChanged() && !groupForm.$dirty"
+            cancel="cancel"
+            custom-button-template="wfmModalCustomBtn.tpl.html">
+
+    <div class="modal-name-fields">
+        <div class="field">
+            <input class="form-control" type="text" autofocus
+                   name="groupName"
+                   ng-disabled="group.isDefault || !isEditEnabled"
+                   ng-model="group.name"
+                   ng-model-options="{updateOn: 'default'}"
+                   placeholder="{{'groupsPage.createNewGroupModal.groupNamePlaceholder' | translate}}"
+                   ng-maxlength="50"
+                   ng-minlength="1"
+                   name-field-validation
+                   unique-string-validator="allGroupNames"
+                   required/>
+
+            <div class="error-messages" ng-if="interacted(submitted, groupForm.groupName)"
+                 ng-messages="groupForm.groupName.$error">
+                <div ng-messages-include="groups/errorMessages.tpl.html"></div>
+            </div>
+        </div>
+    </div>
+    <div>johnye: list of all campaigns in column of 4. Need to create add-campaign directive. </div>
+    <div class="modal-body">
+        <uib-tabset>
+            <uib-tab id="users-tab" heading="{{'groupsPage.createNewGroupModal.employeesTab.header' | translate}}">
+                <!--
+                <fieldset class="user-modal-tab-content" ng-disabled="!isEditEnabled">
+                    <add-employees ng-model="employees" ng-disabled="group.isDefault"></add-employees>
+                </fieldset>
+                -->
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</nice-modal>
